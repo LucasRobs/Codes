@@ -15,7 +15,7 @@ int main(){
     for(int i = 0;i < 20;i++){
         hist[i] = 0;
     }
-    for(int i = 0;i == -1;i++){
+    for(int i = 0;i != -1;i++){
         printf("Nova carta foi : ");
         carta = rand() % (13 - 1 + 1) + 1;
         
@@ -43,18 +43,14 @@ int main(){
             puts("VOCE È UM MERDA MERMÂO");
             break;
         }
-        if(i < 3){
-            if(i < 2){
-
-            }
-            if(i == 2){
-                puts("jogada do cyborg");
-            }
-        }
+        if(i <1){
+            
+        }else{
         printf("Digite 0 = [hit] ou 1 = [parar]");
         scanf("%d", &parada);
-        if(parada == 0){
-            size++;
+        }
+        if(parada == 1){
+            size = -1;
         }
         for(;total > 21 && as > 0;){
             total -= 10;
