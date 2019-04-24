@@ -7,12 +7,15 @@ int main(){
     int as = 0;
     int parada = 0;
     int size = 0;
+
+
+
     int carta = 0;
     int hist[20] = {0};
     for(int i = 0;i < 20;i++){
         hist[i] = 0;
     }
-    for(int i = 0;i == parada;){
+    for(int i = 0;i == -1;i++){
         printf("Nova carta foi : ");
         carta = rand() % (13 - 1 + 1) + 1;
         
@@ -25,8 +28,7 @@ int main(){
         else if(carta == 13)
             printf("K\n"); 
         else
-            printf("%d\n", carta); 
-            
+            printf("%d\n", carta);    
         if(carta > 9){
             carta = 10;
         }
@@ -41,19 +43,24 @@ int main(){
             puts("VOCE È UM MERDA MERMÂO");
             break;
         }
+        if(i < 3){
+            if(i < 2){
+
+            }
+            if(i == 2){
+                puts("jogada do cyborg");
+            }
+        }
         printf("Digite 0 = [hit] ou 1 = [parar]");
         scanf("%d", &parada);
         if(parada == 0){
             size++;
         }
-
-        for(int x = total;total > 21 && as > 0;){
+        for(;total > 21 && as > 0;){
             total -= 10;
             as--;
-        }
-        
+        }   
     }
-    
     printf("Histórico de cartas = [");
     for(int i = 0; i <= size; i++){
         if(hist[i] == 1)
@@ -71,6 +78,4 @@ int main(){
     }
     printf("]\n");
     printf("total final %d\n", total);
-
 }
-
