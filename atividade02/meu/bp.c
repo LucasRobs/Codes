@@ -57,10 +57,28 @@ int main(){
         }
         if(i == 0){
             for(int x = 0; x < size; x++)
-            printf("%d ", histM[x]);
+                if(histM[x] == 1)
+                    printf("A ");
+                else if(histM[x] == 11)
+                    printf("J ");
+                else if(histM[x] == 12)
+                    printf("Q ");
+                else if(histM[x] == 13)
+                    printf("K "); 
+                else
+                    printf("%d ", histM[x]);
         }else{
             for(int x = 0; x < size; x++)
-                printf("%d ", hist[x]);
+                if(hist[x] == 1)
+                    printf("A ");
+                else if(hist[x] == 11)
+                    printf("J ");
+                else if(hist[x] == 12)
+                    printf("Q ");
+                else if(hist[x] == 13)
+                    printf("K "); 
+                else
+                    printf("%d ", hist[x]);
         }
         printf("]\n");
         if(total > 21){
@@ -84,48 +102,59 @@ int main(){
             as--;
         }   
     }
-    for(int i = 0;;){
-        if(totalM > 21){
-            puts("Voce Ganhou!");
-            break;
-        }else if(totalM == 21 || totalM >= total){
-            puts("Voce perdeu!");
-            break;
-        }
-        sizeM++;
-        printf("Mesa recebe [");
-        carta = rand() % (13 - 1 + 1) + 1;
-        if(carta == 1)
-            printf("A");
-        else if(carta == 11)
-            printf("J");
-        else if(carta == 12)
-            printf("Q");
-        else if(carta == 13)
-            printf("K"); 
-        else
-            printf("%d", carta);  
-        printf("]");  
-        histM[i + 1] = carta;
-        if(carta > 9)
-            carta = 10;
-        if(carta == 1){
-            carta = 11;
-            as++;
-        }
-        totalM += carta;
-        printf(" - Total %d [ ", totalM);
-        for(int x = 0; x < sizeM; x++){
-            printf("%d ", histM[x]);
-        }
-        printf("]\n");
-        if(total > 21){
-            puts("VOCE E UM MERDA MERMÂO");
-            break;
+    if(total <= 21){
+        for(int i = 0;;i++){
+            if(totalM > 21){
+                puts("Voce Ganhou!");
+                break;
+            }else if(totalM == 21 || totalM >= total){
+                puts("Voce perdeu!");
+                break;
+            }
+            sizeM++;
+            printf("Mesa recebe [");
+            carta = rand() % (13 - 1 + 1) + 1;
+            if(carta == 1)
+                printf("A");
+            else if(carta == 11)
+                printf("J");
+            else if(carta == 12)
+                printf("Q");
+            else if(carta == 13)
+                printf("K"); 
+            else
+                printf("%d", carta);  
+            printf("]");  
+            histM[i + 1] = carta;
+            if(carta > 9)
+                carta = 10;
+            if(carta == 1){
+                carta = 11;
+                as++;
+            }
+            totalM += carta;
+            printf(" - Total %d [ ", totalM);
+            for(int x = 0; x < sizeM; x++){
+                    if(histM[x] == 1)
+                        printf("A ");
+                    else if(histM[x] == 11)
+                        printf("J ");
+                    else if(histM[x] == 12)
+                        printf("Q ");
+                    else if(histM[x] == 13)
+                        printf("K "); 
+                    else
+                        printf("%d ", histM[x]);
+            }
+            printf("]\n");
+            if(total > 21){
+                puts("VOCE E UM MERDA MERMÂO");
+                break;
+            }
         }
     }
     printf("Seu histórico de cartas = [");
-    for(int i = 0; i <= size -1; i++){
+    for(int i = 0; i < size -1; i++){
         if(hist[i] == 1)
             printf("A");
         else if(hist[i] == 11)
@@ -136,10 +165,10 @@ int main(){
             printf("K");
         else
             printf("%d", hist[i]);
-        if(i != size - 1)
+        if(i != size - 2)
             printf(", ");
     }
-    printf("] \nHistórico de cartas da mesa = [");
+    printf("]\nHistórico de cartas da mesa = [");
     for(int i = 0; i <= sizeM -1; i++){
         if(histM[i] == 1)
             printf("A");
