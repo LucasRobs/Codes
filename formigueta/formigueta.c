@@ -6,19 +6,20 @@ int main(){
     int cm = 0;
     int auh = 0;
     int aum = 0;
-    
     scanf("%d %d %c %d", &h, &m, &d, &cm);
-    cm = cm * 10;
+    auh = h * 6;
+    aum = m / 10;
+    int soma = auh + aum;
     if(d == 'H'){
+            soma = (soma + cm) % 72;
 
     }else if(d == 'A'){
-
+        soma = (soma - cm) % 72;
+        if(soma < 0){
+            soma += 72;
+        }
     }
-    
-    
-    
-    
-    printf("%d %d", h, m);
-    
-    
+    auh = soma / 6;
+    aum = (soma % 6) * 10;
+    printf("%02d %02d", auh, aum);
 }
