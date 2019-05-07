@@ -25,15 +25,19 @@ int main(){
     }
     for(int i = 0;i != -1;i++){
         if(i == 0){
-            printf("Rodada [%d]\nDinheiro : %d \nDigite valor da aposta ou -1 para sair : ", rodada, money);
-            for(;aposta <= 0 || aposta > 100;){
+            if(money < 5){
+                puts("Você não pode mais apostar #semGranaIrmão");
+                return 0;
+            }
+            printf("Rodada [%d]\nDinheiros : %d \nDigite valor da aposta ou -1 para sair : ", rodada, money);
+            for(;aposta <= 5 || aposta > 100 || aposta >= money;){
                 scanf("%d", &aposta);
                 if(aposta == -1){
                     puts("Volte sempre!");
                     return 0;
                 }
-                if(aposta <= 0 || aposta > 100){
-                    puts("Digite valor menor que 100$ ");
+                if(aposta <= 5 || aposta > 100 || aposta >= money){
+                    puts("Digite valor menor que 100$ e maior que 5$");
                 }
                 money = money - aposta;
             }
