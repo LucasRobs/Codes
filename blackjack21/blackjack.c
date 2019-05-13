@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
     int ncartas = 0;
-    //scanf("%d", &ncartas);
+    scanf("%d", &ncartas);
     int total = 0;
     int as = 0;
     int carta = 0;
