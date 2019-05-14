@@ -18,3 +18,19 @@ git push origin master
 
 
 .
+
+
+----ATUALIZAR----
+
+git pull origin master
+
+-----Up Arquivos----
+
+git add .
+
+git commit -m 0.1
+
+git push origin master
+
+
+.
