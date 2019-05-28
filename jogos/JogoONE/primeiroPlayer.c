@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "gconio.h"
 #include "objeto.h"
 #include "tela.h"
 
@@ -12,9 +13,14 @@ int main(){
 
     char tela[NL][NC];
     for(;;){
-        char acao = ' ';
-        scanf(" %c", &acao);
-
+        char acao = getch();
+        //scanf("%c", &acao);
+        if(acao == 'x'){
+            system("clear"); 
+            puts("ADEUS ;-;");
+            return 0;
+        }
+        system("clear");  
         objeto_move(player, acao);
 
         tela_clear(tela);
