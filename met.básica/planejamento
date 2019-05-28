@@ -1,0 +1,110 @@
+100Q função
+    1ª 1º grau 25Q;
+        1)Determine a função afim f(x) = ax + b, sabendo que f(1) = 5 e f(–3) = –7.
+            
+            f(1) = 5
+            f(1) = a * 1 + b
+            5 = a + b
+            a + b = 5
+
+            f(–3) = –7
+            f(–3) = a * (–3) + b
+            f(–3) = –3a + b
+            –3a + b = –7
+
+            ¹/a + b = 5
+            ²\-3a + b = -7
+
+            ¹a + b = 5  
+             a = 5 - b
+
+            ²-3a + b = -7  
+             -3 * (5 - b) + b = -7 
+             -15 + 3b + b = - 7  
+             4b = -7 + 15 = 8  
+             4b = 8  
+             b = 2
+           
+            ¹a + b = 5  
+             a + 2 = 5  
+             a = 3
+
+            f(x)=3x+2
+
+        2)(U. Católica de Salvador-BA)
+        Seja a função f de R em R definida por f(x) = 54x + 45, determine o valor de f(2 541) – f(2 540).
+
+            f(2541) = 54 * 2541 + 45
+            f(2541) = 137214 + 45
+            f(2541) = 137259
+
+            f(2540) = 54 * 2540 + 45
+            f(2540) = 137160 + 45
+            f(2540) = 137205
+
+            f(2 541) - f(2 540)
+            137259 - 137205 = 54
+
+        3)(U. F. Viçosa-MG)
+        Uma função f é dada por f(x) = ax + b, em que a e b são números reais. Se f(–1) = 3 e f(1) = –1, determine o valor de f(3).
+        
+        f(–1) = 3
+        a * (-1) + b = 3
+        -a + b = 3
+
+        f(1) = –1 
+        a * (1) + b = -1
+        a + b = -1
+
+        ¹/-a + b = 3
+        ²\a + b = -1
+
+        ¹-a + b = 3
+         b = 3 + a
+
+        ²a + b = -1
+         a + 3 + a = -1
+         2a = -1 - 3 = -4
+         2a = -4
+         a = -4/2
+         (a = -2)
+
+        ¹2 + b = 3
+         b = 3 - 2
+         (b = 1)
+
+        f(3)= -2*3 + 1
+        f(3)= -6 + 1
+        
+        f(3)= -5
+
+        4)(PUC-BH)
+        A função R(t) = at + b expressa o rendimento R, em milhares de reais, de certa aplicação. O tempo t é contado em meses, R(1) = –1 e R(2) = 1. Nessas condições, determine o rendimento obtido nessa aplicação, em quatro meses. 
+
+        ¹R(1) = –1
+        ²R(2) = 1
+        
+        ¹/a + b = -1 
+        ²\2a + b = 1
+
+        ¹a + b = -1
+         b = -1 - a
+
+        ²2a + b = 1
+         2a + (–1 – a) = 1
+         2a – 1 – a = 1
+         a = 1 + 1
+         (a = 2)
+        
+        ¹b = – 1 – a
+         b = –1 – 2
+         (b = –3)
+
+        R(4)= 2*4 - 3
+        R(4)= 5;
+
+        5 * 1000 = R$5000
+
+    2ª 2º grau 25Q;
+    3ª Polinomial 25Q;
+    4ª Racional 25Q;
