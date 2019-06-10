@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "objeto.h"
-#include "tela.h"
+#include "tk.h"
+//#include "tela.h"
 #include "gconio.h"
 int NL = 15;
 int NC = 50;
@@ -73,6 +74,7 @@ int main(){
         objeto_print(player);
 
         gotoxy(0, 0);
+        tk_sleep(500);
     }
 
     objeto_destroy(player);
