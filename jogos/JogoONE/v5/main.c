@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "objeto.h"
-#include "tk.h"
-//#include "tela.h"
+#include "tela.h"
 #include "gconio.h"
 int NL = 15;
 int NC = 50;
@@ -27,7 +26,9 @@ void draw_border(){
 bool esta_sobre_cerca(Objeto * obj){
     return (obj->x == 1 || obj->x == NC - 1 || obj->y == 1 || obj->y == NL - 1);
 }
-        
+bool esta_sobre_plat(Plataforma * plat){
+    
+}        
 
 int main(){
     Objeto * player = objeto_create(4, 5, '@', WHITE);
@@ -74,7 +75,6 @@ int main(){
         objeto_print(player);
 
         gotoxy(0, 0);
-        tk_sleep(500);
     }
 
     objeto_destroy(player);
