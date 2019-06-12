@@ -8,7 +8,7 @@ int anterior = 0, timer = 0;
             printf("TICK\n");
             anterior = timer;
         }
-        printf("%d ",timer);
+        //printf("%d ",timer);
     }
 }
 
