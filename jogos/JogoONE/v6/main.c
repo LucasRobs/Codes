@@ -43,12 +43,12 @@ int main(){
     poste[0].x = 9;
     poste[0].y = 7;
     poste[0].nome = 'G';
-    poste[0].cor = "YELLOW";
+    poste[0].cor = "WHITE";
     
     poste[1].x = 3;
     poste[1].y = 4;
     poste[1].nome = 'X';
-    poste[1].cor = "YELLOW";
+    poste[1].cor = "WHITE";
     
 
     while(1){

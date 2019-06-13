@@ -19,6 +19,7 @@ void objeto_destroy(Objeto * obj){
 }
 
 void objeto_move(Objeto * obj, char dir){
+    obj->y += 1;
     if(dir == 'a')
         obj->x -= 1;
     else if(dir == 's')

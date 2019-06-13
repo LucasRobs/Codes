@@ -32,3 +32,8 @@ puts("1 Iniciar o JOGO");
 puts("2 Creditos");
 scanf("%d", &controla);
 }
+int creditos(void){
+    system("clear");
+    puts("Lucas, The Creator") 
+    
+}
