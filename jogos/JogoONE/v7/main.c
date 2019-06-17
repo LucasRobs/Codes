@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
 #include "objeto.h"
 //#include "tela.h"
 #include "gconio.h"
@@ -44,6 +44,19 @@ int main(){
     //for(int i = 0;i < plataformas;i++)
     
     
+    /* int xp = 0;
+    int yp  = 0;
+    char nomep = '0';
+    char corp[20];
+    for(int i = 0; i < Npostes;i++){
+    scanf("%d %d %c %s", &xp, &yp, &nomep, &corp);
+    poste[i].x = xp;
+    poste[i].y = yp;
+    poste[i].nome = nomep;
+    poste[i].cor = corp;
+    }*/
+    
+    
     poste[0].x = 9;
     poste[0].y = 7;
     poste[0].nome = 'G';
@@ -59,7 +72,7 @@ int main(){
         //processar eventos
         char acao = ' ';
         
-        timer = SDL_GetTicks();
+        //timer = SDL_GetTicks();
         acao = getch();
         //if (timer > anterior + 1000) {
         //    acao = 's';
