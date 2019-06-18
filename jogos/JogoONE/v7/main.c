@@ -35,7 +35,7 @@ int main(){
     FILE * ArqPost = fopen("poste.txt", "r");
     Objeto * player = objeto_create(4, 5, '+', WHITE);
     Objeto * pedra = objeto_create(9, 3, '#', WHITE);
-    Objeto * poste = (Objeto*) realloc(poste,sizeof(Objeto)*2);
+    Objeto * poste = (Objeto*) realloc(poste,sizeof(Objeto)*MAX);
     //for(int i =0;i< 3;i++){
     //poste = objeto_create(9, 7, 'G', YELLOW);
     //(poste+1) = objeto_create(3, 4, 'G', YELLOW);
@@ -48,9 +48,8 @@ int main(){
     char nomep;
     char corp[20];
     //fscanf(ArqPost,"%d", &IDposte);
-    
     int l = 0, c = 0;
-    while(fscanf(ArqPost,"%c",&nomep)){
+    while(fscanf(ArqPost,"%c",&nomep) == 1){
         if(nomep == '#'){
             poste[IDposte].x = l;
             poste[IDposte].y = c;
@@ -60,7 +59,7 @@ int main(){
             c += 1;
         }else if(nomep == '\n'){
             l += 1;
-        }else{
+        }else if(nomep == '.'){
             c += 1;
         }
     }
