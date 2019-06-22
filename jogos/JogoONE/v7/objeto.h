@@ -13,7 +13,7 @@ typedef struct{
 
 Objeto * objeto_create(int x, int y, char nome, int cor){
     Objeto * obj = (Objeto*) malloc(sizeof(Objeto));
-    (*obj).x = x;
+    obj->x = x;
     obj->y = y;
     obj->nome = nome;
     obj->cor = cor;

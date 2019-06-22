@@ -55,7 +55,7 @@ int main(){
         poste[i].y = yp;
         poste[i].nome = nomep;
         poste[i].cor = corp;
-    }
+    } 
     
 /*
     poste[0].x = 9;
