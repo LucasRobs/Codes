@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -7,8 +6,8 @@
 #include "objeto.h"
 //#include "tela.h"
 #include "gconio.h"
-int NL = 15;
-int NC = 50;
+int NL = 38;
+int NC = 88;
 int MAX = 9999;
 
 void draw_border(){
@@ -35,7 +34,7 @@ int main(){
     int anterior = 0, timer = 0;
     FILE * ArqPost = fopen("poste.txt", "r");
     Objeto * player = objeto_create(4, 5, '+', WHITE);
-    Objeto * pedra = objeto_create(9, 3, '#', YELLOW);
+    Objeto * pedra = objeto_create(9, 3, '#', WHITE);
     Objeto * poste = (Objeto*) realloc(poste,sizeof(Objeto)*2);
     //for(int i =0;i< 3;i++){
     //poste = objeto_create(9, 7, 'G', YELLOW);
@@ -45,9 +44,10 @@ int main(){
     
     int xp = 0;
     int yp  = 0;
-    int Npostes = 0;
-    char nomep = '0';
+    int IDposte = 0;
+    char nomep;
     char corp[20];
+<<<<<<< HEAD
     fscanf(ArqPost,"%d", &Npostes);
     for(int i = 0; i < Npostes;i++){
         fscanf(ArqPost,"%d %d %c %s", &xp, &yp, &nomep, &corp);
@@ -62,13 +62,25 @@ int main(){
     poste[0].y = 7;
     poste[0].nome = 'G';
     poste[0].cor = "WHITE";
+=======
+    //fscanf(ArqPost,"%d", &IDposte);
+>>>>>>> 6839b4d01bebdd3e47d6baa1cda2a036933561b8
     
-    poste[1].x = 3;
-    poste[1].y = 4;
-    poste[1].nome = 'X';
-    poste[1].cor = "WHITE";
-*/  
-
+    int l = 0, c = 0;
+    while(fscanf(ArqPost,"%c",&nomep)){
+        if(nomep == '#'){
+            poste[IDposte].x = l;
+            poste[IDposte].y = c;
+            poste[IDposte].nome = nomep;
+            poste[IDposte].cor = YELLOW;
+            IDposte += 1;
+            c += 1;
+        }else if(nomep == '\n'){
+            l += 1;
+        }else{
+            c += 1;
+        }
+    }
     while(1){
         //processar eventos
         char acao = ' ';
@@ -91,7 +103,7 @@ int main(){
 
         if(esta_sobre_cerca(player))
             *player = player_old;
-        for(int i =0; i< Npostes; i++){
+        for(int i =0; i< IDposte; i++){
         if((player->x == poste[i].x) && (player->y == poste[i].y))
             *player = player_old;
         }
@@ -109,10 +121,10 @@ int main(){
 
 
         clrscr();
-        draw_border();
+        //draw_border();
 
         objeto_print(pedra);
-        for(int i = 0; i < Npostes; i++){
+        for(int i = 0; i < IDposte; i++){
             objeto_print(&poste[i]);
         }
         objeto_print(player);
