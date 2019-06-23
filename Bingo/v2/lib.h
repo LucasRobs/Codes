@@ -15,7 +15,8 @@ Tabela * Tabela_create(char nome){
             for(int z = x - 1;z >= 0; z--){
                 if(tab->tabela[x][y] == tab->tabela[z][y]){
                     tab->tabela[x][y] = rand() % (maior - menor + 1) + menor;
-                    z = x - 1;
+                    if(tab->tabela[x][y] == tab->tabela[z][y])
+                        tab->tabela[x][y] = rand() % (maior - menor + 1) + menor;//mudar para z = x - 1;
                 }
             }
         }

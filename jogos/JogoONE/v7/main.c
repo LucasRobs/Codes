@@ -47,7 +47,6 @@ int main(){
     int IDposte = 0;
     char nomep;
     char corp[20];
-<<<<<<< HEAD
     fscanf(ArqPost,"%d", &Npostes);
     for(int i = 0; i < Npostes;i++){
         fscanf(ArqPost,"%d %d %c %s", &xp, &yp, &nomep, &corp);
@@ -62,9 +61,7 @@ int main(){
     poste[0].y = 7;
     poste[0].nome = 'G';
     poste[0].cor = "WHITE";
-=======
     //fscanf(ArqPost,"%d", &IDposte);
->>>>>>> 6839b4d01bebdd3e47d6baa1cda2a036933561b8
     
     int l = 0, c = 0;
     while(fscanf(ArqPost,"%c",&nomep)){
