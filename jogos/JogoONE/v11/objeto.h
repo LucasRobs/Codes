@@ -13,7 +13,7 @@ typedef struct{
 
 Objeto * objeto_create(int x, int y, char nome, int cor){
     Objeto * obj = (Objeto*) malloc(sizeof(Objeto));
-    obj->x = x;
+    (*obj).x = x;
     obj->y = y;
     obj->nome = nome;
     obj->cor = cor;
@@ -33,6 +33,17 @@ void objeto_move(Objeto * obj, char dir){
         obj->y -= 1;
     else if(dir == 's')
         obj->y += 1;
+}
+void sprite(char acao, Objeto * obj){
+    if(acao == 's'){
+        obj->nome = 'v';
+    }else if(acao == 'w'){
+        obj->nome = '^';
+    }else if(acao == 'a'){
+        obj->nome = '<';
+    }else if(acao == 'd'){
+        obj->nome = '>';
+    }
 }
 
 void objeto_print(Objeto * obj){
