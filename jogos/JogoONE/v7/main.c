@@ -47,23 +47,22 @@ int main(){
     int IDposte = 0;
     char nomep;
     char corp[20];
-    fscanf(ArqPost,"%d", &Npostes);
-    for(int i = 0; i < Npostes;i++){
+    //fscanf(ArqPost,"%d", &Npostes);
+    /* for(int i = 0; i < 2;i++){
         fscanf(ArqPost,"%d %d %c %s", &xp, &yp, &nomep, &corp);
         poste[i].x = xp;
         poste[i].y = yp;
         poste[i].nome = nomep;
         poste[i].cor = corp;
     } 
-    
-/*
     poste[0].x = 9;
     poste[0].y = 7;
     poste[0].nome = 'G';
     poste[0].cor = "WHITE";
-    //fscanf(ArqPost,"%d", &IDposte);
+    //fscanf(ArqPost,"%d", &IDposte);*/
+    
     int l = 0, c = 0;
-    while(fscanf(ArqPost,"%c",&nomep) == 1){
+    while(fscanf(ArqPost,"%c",&nomep)){
         if(nomep == '#'){
             poste[IDposte].x = l;
             poste[IDposte].y = c;
