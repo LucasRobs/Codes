@@ -1,0 +1,6 @@
+CODIGO DO CLIENTE 0
+NOME: Lukinhas
+RUA: Porta Jose Martins
+BAIRRO: Centro
+NUMERO: 404
+QUANTIDADE DE AGUA: 1
