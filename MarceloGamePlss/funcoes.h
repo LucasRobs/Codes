@@ -67,6 +67,7 @@ void atirar(int tiro[2]){
 int acertou(int tiro[2], int navios[][2]){  
     char letra[5] = {'A', 'B', 'C', 'D', 'E'};
     for(int navio = 0; navio < 3; navio++){
+        
         if( tiro[0] == navios[navio][0] && tiro[1] == navios[navio][1]){
             printf("+----------------------------+\n..Voce acertou o tiro (%c,%d)..\n+----------------------------+\n",letra[tiro[0]],tiro[1]+1);
             return 1;
@@ -74,6 +75,10 @@ int acertou(int tiro[2], int navios[][2]){
     }
     printf("+----------------------------+\n..Voce Errou o tiro em (%c,%d)..\n+----------------------------+\n",letra[tiro[0]],tiro[1]+1);
     return 0;
+}
+
+void printacertos(int acertos){
+    printf("\n..navios %d/3..\n+------------+\n", acertos);
 }
 
 void dica(int tiro[2], int navios[][2], int tentativa){

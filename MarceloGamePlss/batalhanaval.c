@@ -30,6 +30,7 @@ int main() {
 
         alterar_tabu(tiro,navios,tabuleiro);
 
+        printacertos(acertos);
 
     }while(acertos != 3);
     clrscr();   
