@@ -15,7 +15,7 @@ int main() {
 
     printf("\n");
 
-    do{
+    for(;acertos != 3;){
         show_tabu(tabuleiro);
         atirar(tiro);
         clrscr();
@@ -24,17 +24,15 @@ int main() {
         if(acertou(tiro,navios)){
             dica(tiro,navios,tentativas);
             acertos++;
-        }
-        else
+        }else
             dica(tiro,navios,tentativas);
 
         alterar_tabu(tiro,navios,tabuleiro);
 
         printacertos(acertos);
-
-    }while(acertos != 3);
+    }
     clrscr();   
-    printf("\n\n\nJogo terminado. Voce teve 3 acertos em %d tentativas\n", tentativas);
+    printf("\nJogo terminado. Voce teve 3 acertos em %d tentativas\n", tentativas);
     show_tabu(tabuleiro);
     puts("");
 }

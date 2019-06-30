@@ -40,8 +40,6 @@ void iniciar_navios(int navios[][2]){
         navios[navio][0] = rand() % 5;
         navios[navio][1] = rand() % 5;
 
-        //agora vamos checar se esse par não foi sorteado.
-        //se foi, só sai do "do...while" enquanto sortear um diferente.
         for(int anterior = 0; anterior < navio; anterior++){
             if((navios[navio][0] == navios[anterior][0]) && (navios[navio][1] == navios[anterior][1]))
                 do{
@@ -55,8 +53,18 @@ void iniciar_navios(int navios[][2]){
 void atirar(int tiro[2]){
     char linha[10] = {'A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e'}, coluna = '0';
     textcolor(WHITE);
-    printf("Linha Coluna:  ");
-    scanf("%c %d", &coluna, &tiro[1]);
+    printf("Linha Coluna: ");
+    for(int b = 0; b != 1;){
+        scanf("%c %d", &coluna, &tiro[1]);
+        for(int i = 0; i < 10; i++){
+            if(coluna == linha[i] && tiro[1] > 0 && tiro[0] < 5){
+                tiro[0] = i % 5;
+                b += 1;
+            }
+        }
+        puts("letra ou numero invalido");
+        printf("Linha Coluna: ");
+    }
     for(int i = 0; i < 10; i++){
         if(coluna == linha[i]){
             tiro[0] = i % 5;
@@ -64,10 +72,10 @@ void atirar(int tiro[2]){
     }
     tiro[1] -= 1;
 }
+
 int acertou(int tiro[2], int navios[][2]){  
-    char letra[5] = {'A', 'B', 'C', 'D', 'E'};
+    char letra[5] ={'A', 'B', 'C', 'D', 'E'};
     for(int navio = 0; navio < 3; navio++){
-        
         if( tiro[0] == navios[navio][0] && tiro[1] == navios[navio][1]){
             printf("+----------------------------+\n..Voce acertou o tiro (%c,%d)..\n+----------------------------+\n",letra[tiro[0]],tiro[1]+1);
             return 1;
@@ -78,7 +86,7 @@ int acertou(int tiro[2], int navios[][2]){
 }
 
 void printacertos(int acertos){
-    printf("\n..navios %d/3..\n+------------+\n", acertos);
+    printf("..navios %d/3..\n+------------+\n", acertos);
 }
 
 void dica(int tiro[2], int navios[][2], int tentativa){
@@ -97,8 +105,10 @@ void dica(int tiro[2], int navios[][2], int tentativa){
 }
 
 void alterar_tabu(int tiro[2], int navios[][2], int tabuleiro[][5]){
-    if(acertou(tiro,navios))
+    if(acertou(tiro,navios)){
         tabuleiro[tiro[0]][tiro[1]] = 1;
+        printf("(%c,%d)", tiro[0], tiro[1]);
+    }
     else
         tabuleiro[tiro[0]][tiro[1]] = 0;
 }
