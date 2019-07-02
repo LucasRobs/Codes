@@ -14,7 +14,8 @@ int main(){
     int anterior = 0, timer = 0;
     FILE * ArqPost = fopen("level_1.txt", "r");
     Objeto * player = objeto_create(4, 5, '+', WHITE);
-    Objeto * pedra = (Objeto*) realloc(pedra,sizeof(Objeto)*MAX);
+    Objeto * pedra = objeto_create(4, 5, '@', WHITE);
+    //Objeto * pedra = (Objeto*) realloc(pedra,sizeof(Objeto)*MAX);
     Objeto * poste = (Objeto*) realloc(poste,sizeof(Objeto)*MAX);
     Objeto * botao = (Objeto*) realloc(botao,sizeof(Objeto)*MAX);
     
@@ -37,13 +38,13 @@ int main(){
             botao[IDbotao].cor = BLUE;
             IDbotao += 1;
             c += 1;
-        }else if(caractere == '@'){
+        /*}else if(caractere == '@'){
             pedra[IDpedra].x = c;
             pedra[IDpedra].y = l;
             pedra[IDpedra].nome = caractere;
             pedra[IDpedra].cor = WHITE;
             IDpedra += 1;
-            c += 1;
+            c += 1;*/
         }else if(caractere == '\n'){
             l += 1;
             c = 1;
@@ -91,7 +92,7 @@ int main(){
         }
         for(int i = 0; i< IDposte; i++)   //peddraa[i]
             if((pedra[i].x == poste[i].x) && (pedra[i].y == poste[i].y)){
-                pedra[i] = pedra_old; 
+                *pedra = pedra_old; 
                 *player = player_old;
                 sprite(acao, player);
             }
