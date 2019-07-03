@@ -57,11 +57,14 @@ void atirar(int tiro[2]){
     for(int b = 0; b != 1;){
         scanf("%c %d", &coluna, &tiro[1]);
         for(int i = 0; i < 10; i++){
-            if(coluna == linha[i] && tiro[1] > 0 && tiro[1] < 5){
+            if(coluna == linha[i] && tiro[1] >= 0 && tiro[1] <= 5){
                 tiro[0] = i % 5;
                 b += 1;
+                break;
             }
         }
+        if(b == 1)
+            break;
         puts("letra ou numero invalido");
         printf("Linha Coluna: ");
     }

@@ -14,8 +14,7 @@ int main(){
     int anterior = 0, timer = 0;
     FILE * ArqPost = fopen("level_1.txt", "r");
     Objeto * player = objeto_create(4, 5, '+', WHITE);
-    Objeto * pedra = objeto_create(4, 5, '@', WHITE);
-    //Objeto * pedra = (Objeto*) realloc(pedra,sizeof(Objeto)*MAX);
+    Objeto * pedra = (Objeto*) realloc(pedra,sizeof(Objeto)*MAX);
     Objeto * poste = (Objeto*) realloc(poste,sizeof(Objeto)*MAX);
     Objeto * botao = (Objeto*) realloc(botao,sizeof(Objeto)*MAX);
     
@@ -38,13 +37,13 @@ int main(){
             botao[IDbotao].cor = BLUE;
             IDbotao += 1;
             c += 1;
-        /*}else if(caractere == '@'){
+        }else if(caractere == '@'){
             pedra[IDpedra].x = c;
             pedra[IDpedra].y = l;
             pedra[IDpedra].nome = caractere;
             pedra[IDpedra].cor = WHITE;
             IDpedra += 1;
-            c += 1;*/
+            c += 1;
         }else if(caractere == '\n'){
             l += 1;
             c = 1;
@@ -67,8 +66,6 @@ int main(){
 
 
         Objeto player_old = *player;
-        for(int i = 0; i > IDpedra; i++)
-            Objeto pedra_old = *pedra;
         sprite(acao, player);
         //realizar logica de jogo
         objeto_move(player, acao);
@@ -81,22 +78,22 @@ int main(){
         
 
 
-        //empurrar a pedra
         //quaaanddo alterar paraa vetor, colocaar isso aqui num for, ondee a pedra[i]->
         //ppedra__old deentro do for receebe pedra[i]
-        for(int i = 0; i > IDpedra; i++){
+        //empurrar a pedra
+        for(int i = 0; i < IDpedra; i++){
             if((player->x == pedra[i].x) && (player->y == pedra[i].y)){
+                Objeto pedra_old = pedra[i];
                 pedra[i].x -= player_old.x - player->x;
                 pedra[i].y -= player_old.y - player->y;
+                for(int i = 0; i < IDposte; i++)   //peddraa[i]
+                    if((pedra[i].x == poste[i].x) && (pedra[i].y == poste[i].y)){
+                        *pedra = pedra_old; 
+                        *player = player_old;
+                        sprite(acao, player);
+                    }
             }
         }
-        for(int i = 0; i< IDposte; i++)   //peddraa[i]
-            if((pedra[i].x == poste[i].x) && (pedra[i].y == poste[i].y)){
-                *pedra = pedra_old; 
-                *player = player_old;
-                sprite(acao, player);
-            }
-
 
         clrscr();
 
