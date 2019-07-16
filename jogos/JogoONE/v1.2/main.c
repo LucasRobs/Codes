@@ -3,41 +3,31 @@
 #include <stdbool.h>
 #include <string.h>
 #include "objeto.h"
-//#include "tela.h"
+#include "menu.h"
 #include "gconio.h"
 int NL = 40;
 int NC = 88;
 int MAX = 4000;
 
-void destruir_postes(int l, Objeto* postes, int *t, Objeto* portas, int *t2, int k){
-    for(int i = l ; i < *t-1; i++){
-        postes[i] = postes[i+1];
-    }
-    *t = *t - 1;
-    for(int i = k; i < *t2 - 1; i++){
-        portas[i] = portas[i + 1];
-    }
-    *t2 = *t2-1;
-}
-void imprime_mapa(int IDposte, Objeto* poste,int IDbotao, Objeto* botao, int IDpedra, Objeto* pedra, Objeto* player){
-    for(int i = 0; i < IDposte; i++){
-        objeto_print(&poste[i]);
-    }
-    for(int i = 0; i < IDbotao; i++){
-        objeto_print(&botao[i]);
-    }
-    for(int i = 0; i < IDpedra; i++){
-        objeto_print(&pedra[i]);
-    }
-    objeto_print(player);
-}
-
-
 int main(){
     int anterior = 0, timer = 0;
+    int men = menu();
+    for(;men != 0;){
+    if(men == 3){
+        clrscr();
+        return 0;
+    }else if(men == 1){
+        comoJogar();
+        men = menu();
+    }else if(men == 2){
+        creditos();
+        men = menu(); 
+    }
+    }
     FILE * ArqPost = fopen("level_1.txt", "r");
     FILE * ArqLogi = fopen("logic_1.txt", "r");
     Objeto * player = objeto_create(9, 2, '+', WHITE);
+    Objeto * fim = objeto_create(10, 10, 'X', RED);
     Objeto * pedra = (Objeto*) malloc(sizeof(Objeto)*MAX);
     Objeto * poste = (Objeto*) malloc(sizeof(Objeto)*MAX);
     Objeto * botao = (Objeto*) malloc(sizeof(Objeto)*MAX);
@@ -150,12 +140,15 @@ int main(){
             if(achou)
                 break;
         }
+        if(fim_de_jogo(player,fim) == 1){ 
+            return 0;
+        }
         //for  paara caadaaa pedra ver se ppedraa ta em cima de algum botao
             //see tiveer entao
                 //paraa o vetor de portas, assim qq encontraarr uma porta fechada, aabra eela ee dddee um break
-        imprime_mapa(IDposte, poste,IDbotao, botao, IDpedra, pedra, player);
+        imprime_mapa(IDposte, poste,IDbotao, botao, IDpedra, pedra, player, fim);
         
-        gotoxy(0, 0);
+        gotoxy(fim->x, fim->y);
     }
 
     objeto_destroy(player);
