@@ -106,7 +106,7 @@ int main(){
                 pedra[i].y -= player_old.y - player->y;
                 for(int j = 0; j < IDposte; j++)
                     if((pedra[i].x == poste[j].x) && (pedra[i].y == poste[j].y)){
-                        *pedra = pedra_old;
+                        pedra[i] = pedra_old;
                         *player = player_old;
                         sprite(acao, player);
                     }
