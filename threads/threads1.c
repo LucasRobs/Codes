@@ -30,10 +30,10 @@ void caixa(int i){
     textcolor(WHITE);
 }
 
+volatile char nav = '0';
 int main(){
     pid_t filho;
     filho = fork();
-    char nav = '0';
 
     if(filho == 0){
         //load();
