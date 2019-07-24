@@ -8,9 +8,11 @@ void rederizaFogo(int fogotab[]){
     int pont = 0;
     for(int y = 0; y < fogoAltura; y++){
         for(int x = 0; x < fogoLargura; x++){
-            textcolor(fogotab[pont] % 15);
-            printf("%.2d ", fogotab[pont]);
+            textbackground(fogotab[pont] % 7);
+            printf("%.2d", fogotab[pont]);
             pont++;
+            textbackground(0);
+            printf(" ");
         }
         puts("");
     }
@@ -59,4 +61,5 @@ int main(){
     rederizaFogo(fogoTab);
     sleep(1);
     }
+
 }
